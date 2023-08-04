@@ -14,6 +14,14 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+app.get("/", (req, res)=>{
+  try {
+    res.status(200).send({ message: "Welcome to BMI by AI, please use POST method" })
+  } catch (error) {
+    res.status(400).send({ message: error.message })
+  }
+})
+
 app.post("/", async (req, res) => {
   try {
     const message = req.body.msg
