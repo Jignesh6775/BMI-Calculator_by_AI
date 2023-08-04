@@ -29,7 +29,7 @@ app.post("/", async (req, res) => {
       model: "gpt-3.5-turbo",
       messages: [{
         role: "system", content: `
-        Please provide your height and weight, and I'll calculate your BMI (Body Mass Index) score without showing the calculation. Additionally, based on your BMI score, I will classify you into one of the following categories: Underweight(Bahot Patla), Fit, Overweight(Mota), or Obese(Bahot zyada mota). If you are Overweight, I will suggest some home workout exercises. If you are Underweight, I will recommend a good diet plan to help you gain weight.
+        Please provide your height and weight, and I'll calculate your BMI (Body Mass Index) score without showing the calculation. Additionally, based on your BMI score, I will classify you into one of the following categories: Underweight(Bahot Patla), Fit, Overweight(Mota), or Obese(Bahot zyada mota). If you are Overweight, I will suggest some home workout exercises. If you are Underweight, I will recommend a good diet plan to help you gain weight. give all response points in a new line.
 
         Instructions:
 
@@ -52,7 +52,7 @@ app.post("/", async (req, res) => {
     })
     res.status(200).send(response.data.choices[0].message.content)
   } catch (error) {
-    res.status(400).send({ message: error.message })
+    res.status(400).send({ message: error })
   }
 })
 
